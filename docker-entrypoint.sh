@@ -2,8 +2,9 @@
 
 
 
-sed -i "s/matrix-server/${MATRIX_SERVER_NAME}/g" /tmp/*
-sed -i "s/identity-server/${IDENTITY_SERVER_NAME}/g" /tmp/*
+
+sed -i "s|https://matrix-server|${MATRIX_URL%/}|g" /tmp/*
+sed -i "s|https://identity-server|${MATRIX_IDENTITY_URL%/}|g" /tmp/*
 
 
 mv /tmp/client /tmp/server /usr/share/nginx/html/.well-known/matrix/ 
